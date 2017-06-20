@@ -1,5 +1,9 @@
 package main.Utils
 
+import org.apache.kudu.spark.kudu._
+import org.apache.kudu.client._
+import collection.JavaConverters._
+
 /**
   * Created by yunchen on 2017/6/12.
   */
@@ -18,20 +22,42 @@ class KuduSparkCRUD {
     */
 
   /**
-    *直接spark创建表
-    * @param tableName
+    *
+    * @param kuduTableName  表名
+    * @param masterList     master列表
+    * @param isDelete       表存在是否删除
+    * @param kuduTableSchema  表结构，可以手动创建StructType结构，也可以通过DF的schem来获取
+    * @param kuduPrimaryKey   主键
+    * @param kuduPartitionNum 分区数
+    * @return
     */
-  def CreateTableUseSpark(tableName:String, masterList:String)={
+  def CreateTableUseSpark(kuduTableName:String, masterList:String, isDelete:Boolean, kuduTableSchema:org.apache.spark.sql.types.StructType,
+                          kuduPrimaryKey:String, kuduPartitionNum:Int)={
 
+    //1,获取kudumaster地址，创建kuduContext
     val kuduMasters = Seq(masterList).mkString(",")
+    val kuduContext = new KuduContext(kuduMasters)
 
+    //2，判断表是否存在，是否删除
+      if (isDelete){
+      if (kuduContext.tableExists(kuduTableName)) {
+        kuduContext.deleteTable(kuduTableName)
+      }
+    }
 
+    //3，获取表格结构StructType
+
+    val TableSchema = kuduTableSchema
+
+    //4，获取表主键
+
+    val PrimaryKey = Seq(kuduPrimaryKey)
+
+    //4,创建表
+
+    kuduContext.createTable(kuduTableName, TableSchema, Seq(kuduPrimaryKey),
+      new CreateTableOptions().setNumReplicas(3).addHashPartitions(List(kuduPrimaryKey).asJava, 10))
 
   }
-
-
-
-
-
 
 }

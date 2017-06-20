@@ -3,6 +3,11 @@
 > 建表分区这一块没有去细细研究，tpch-ds有99条sql也没测试过，没具体研究怎么分区能让性能更强,有研究的同学请不吝赐教
 > 数据导入的话这里调用的是sqlcontext从hive里面读取数据，tpch-ds生成的数据集默认已经加载到hive了，以orc格式存储，注意impala不支持orc格式，所以在impala里面查询会报错
 
+> 注意需要先import jar包：
+    import org.apache.kudu.spark.kudu._
+    import org.apache.kudu.client._
+    import collection.JavaConverters._
+
 1. customer
 ```
 CREATE TABLE `customer`(

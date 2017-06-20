@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kudu-learning:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/kudu_learning_jar</output-path>
+    <root id="archive" name="kudu-learning.jar">
+      <element id="module-output" name="kudu-learning" />
+    </root>
+  </artifact>
+</component>
