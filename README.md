@@ -5,9 +5,15 @@ kudu学习的一些资料，以及和spark/impala的集成使用
 
 一些学习资料以及ppt
 
+# TPCDS Dataset Import
+
+[数据生成工具]():见TPCDS tools TAR目录hive-testbench.tgz
+[tpcds数据生成]():见TPCDS Dataset Import目录
+[数据导入kudu](): 见TPCDS Dataset Import目录
+
 # src/main scala代码
 
-kudu和spark的集成代码，主要实现了增删改查
+kudu和spark的集成代码，主要实现了增删改查(整理中...)
 
 # spark-shell REPL 手动从hdfs上插入数据到kudu
 
