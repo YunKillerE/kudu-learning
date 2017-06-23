@@ -4,11 +4,12 @@
 > 数据导入的话这里调用的是sqlcontext从hive里面读取数据，tpch-ds生成的数据集默认已经加载到hive了，以orc格式存储，注意impala不支持orc格式，所以在impala里面查询会报错
 
 > 注意需要先import jar包：
+
     import org.apache.kudu.spark.kudu._
     import org.apache.kudu.client._
     import collection.JavaConverters._
 
-1. customer
+# 1. customer
 ```
 CREATE TABLE `customer`(
   `c_custkey` bigint,
@@ -31,7 +32,7 @@ kuduContext.tableExists("impala::default.customer")
 acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> "impala::default.customer")).mode("append").kudu
 ```
 
-2. lineitem
+# 2. lineitem
 ```
 CREATE TABLE `lineitem`(
   `l_orderkey` bigint,
@@ -66,7 +67,7 @@ acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> 
 ```
 
 
-3. nation
+# 3. nation
 ```
 CREATE TABLE `nation`(
   `n_nationkey` bigint,
@@ -85,7 +86,7 @@ val kuduContext = new KuduContext("zjdw-pre0069:7051")
 kuduContext.tableExists("impala::default.nation")
 acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> "impala::default.nation")).mode("append").kudu
 ```
-4. orders
+# 4. orders
 ```
 CREATE TABLE `orders`(
   `o_orderkey` bigint,
@@ -111,7 +112,7 @@ kuduContext.tableExists("impala::default.orders")
 acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> "impala::default.orders")).mode("append").kudu
 ```
 
-5. part
+# 5. part
 ```
 CREATE TABLE `part`(
   `p_partkey` bigint,
@@ -136,7 +137,7 @@ kuduContext.tableExists("impala::default.part")
 acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> "impala::default.part")).mode("append").kudu
 ```
 
-6. partsupp
+# 6. partsupp
 ```
 CREATE TABLE `partsupp`(
   `ps_partkey` bigint,
@@ -158,7 +159,7 @@ kuduContext.tableExists("impala::default.partsupp")
 acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> "impala::default.partsupp")).mode("append").kudu
 ```
 
-7. region
+# 7. region
 ```
 CREATE TABLE `region`(
   `r_regionkey` bigint,
@@ -177,7 +178,7 @@ kuduContext.tableExists("impala::default.region")
 acTransDF.write.options(Map("kudu.master"-> "zjdw-pre0069:7051", "kudu.table"-> "impala::default.region")).mode("append").kudu
 ```
 
-8. supplier
+# 8. supplier
 ```
 CREATE TABLE `supplier`(
   `s_suppkey` bigint,
