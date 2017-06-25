@@ -2,13 +2,13 @@
 
 一些学习资料以及ppt
 
-# 二，TPCH Dataset Import
+# 二，TPCH Dataset
 
-[数据生成工具]():见TPCH tools TAR目录hive-testbench.tgz
+[数据生成工具](https://github.com/jimmy-src/kudu-learning/tree/master/TPC-DS%20tools%20TAR):见TPC-DS tools TAR目录hive-testbench.tgz
 
-[tpcds数据生成]():见TPCH Dataset Import目录
+[tpcds数据生成](https://github.com/jimmy-src/kudu-learning/tree/master/TPCDS%20Dataset%20Import):见TPCDS Dataset Import目录
 
-[数据导入kudu](): 见TPCH Dataset Import目录
+[数据导入kudu](https://github.com/jimmy-src/kudu-learning/tree/master/TPCDS%20Dataset%20Import): 见TPCDS Dataset Import目录
 
 # 三，src/main scala代码
 
@@ -16,7 +16,7 @@ kudu和spark的集成代码，主要实现了增删改查(整理中...)
 
 # 四，精准查询测试及OLAP测试
 
-见TPCH Performance Result目录
+见TPC-DS Performance Result目录
 
 # 五，spark-shell REPL 手动从hdfs上插入数据到kudu
 
@@ -25,7 +25,7 @@ kudu和spark的集成代码，主要实现了增删改查(整理中...)
 ## 1，启动spark-shell
 ```
 #注意这里会联网下载kudu的jar包，如果不能联网，可以去其他能联网的机器上执行下载好，再将/root/.ivy2/cache/org.apache.kudu/kudu-spark_2.10/目录打包过去放到相同位置就行了
-#如果环境和我一样的，可以直接使用TPCH tools TAR/kudu-spark_2.10.tgz文件
+#如果环境和我一样的，可以直接使用TPCH-DS tools TAR/kudu-spark_2.10.tgz文件
 
 spark-shell --packages org.apache.kudu:kudu-spark_2.10:1.3.0
 
