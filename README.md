@@ -88,7 +88,7 @@ acTransDF.write.options(Map("kudu.master"-> "192.168.1.12:7051", "kudu.table"-> 
 
 * 3.Impala:  Catalog Server设置内存为32gb；impalad内存设置为64gb
 
-
+参数调整后，15亿数据大概6分钟就导入进去了，写入性能提升巨大
 
 
 
