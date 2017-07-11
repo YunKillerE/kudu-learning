@@ -1,6 +1,8 @@
 # hive-testbench.tgz
 
-TPC-DS及TPC-H数据集生成工具，已经编译好了，在centos6.4上运行正常，也可以自己编译，[源码](https://github.com/jimmy-src/hive-testbench)
+TPC-DS及TPC-H数据集生成工具，可以自己编译，[源码](https://github.com/jimmy-src/hive-testbench)
+
+数据集参考官方文档：http://www.tpc.org/TPC_Documents_Current_Versions/pdf/TPC-DS_v2.5.0.pdf
 
 # kudu-spark_2.10.tgz
 

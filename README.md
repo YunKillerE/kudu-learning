@@ -25,6 +25,7 @@ kudu和spark的集成代码，主要实现了增删改查(整理中...)
 ## 1，启动spark-shell
 ```
 #注意这里会联网下载kudu的jar包，如果不能联网，可以去其他能联网的机器上执行下载好，再将/root/.ivy2/cache/org.apache.kudu/kudu-spark_2.10/目录打包过去放到相同位置就行了
+#也可以直接去https://repo1.maven.org/maven2/org/apache/kudu下面选择对应版本的jar包下载下来，执行spark-shell --jars kudu-$verr
 #如果环境和我一样的，可以直接使用TPCH-DS tools TAR/kudu-spark_2.10.tgz文件
 
 spark-shell --packages org.apache.kudu:kudu-spark_2.10:1.3.0
@@ -53,6 +54,8 @@ val acTransRDD = sc.textFile("hdfs://cmdata1:8020//kudu_spark/674581054918776").
 //spark 1.6
 val acTransDF = sqlContext.createDataFrame(acTransRDD)
 ```
+
+> 从kudu读取数据：val dk = spark.read.options(Map("kudu.master"-> "192.168.3.79:7051", "kudu.table"-> "impala::kudu_spark_tpcds_1000.catalog_returns")).kudu
 
 ## 4,创建kudu表（可选，也可以在impala里面先创建好）
 ```
