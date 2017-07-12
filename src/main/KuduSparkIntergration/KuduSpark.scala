@@ -73,8 +73,10 @@ object KuduSpark {
 
     val kuduTableName = "spark_yunchen_supple"
 
+    val ct = new CreateTableUseSparkTest()
+
     //创建表，这里创建的表在impala里面看不到
-    CreateTableUseSparkTest.CreateTableUseSpark(kuduContext)
+    ct.CreateTableUseSpark(kuduContext)
     println("创建表，如果存在则删除.....")
 
     //查询数据

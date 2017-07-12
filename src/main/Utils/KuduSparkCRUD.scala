@@ -8,7 +8,7 @@ import collection.JavaConverters._
 /**
   * Created by yunchen on 2017/6/12.
   */
-class KuduSparkCRUD(kuduContext:KuduContext) {
+class  KuduSparkCRUD(kuduContext:KuduContext) {
 
   /**
     * 主要实现CRUD功能

@@ -1,0 +1,7 @@
+./idea
+META-INF/
+out/
+sqoop1_import.iml
+src/META-INF
+./jar
+./target

@@ -7,7 +7,7 @@ import org.apache.spark.sql.types._
 /**
   * Created by yunchen on 2017/6/12.
   */
-object CreateTableUseSparkTest {
+class CreateTableUseSparkTest {
 
 
   def main(args: Array[String]): Unit = {
