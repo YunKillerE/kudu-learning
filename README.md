@@ -45,7 +45,7 @@ def toTrans = (trans: Seq[String]) => Trans(trans(0).replace("\'", "").trim.toIn
 
 ## 3，从hdfs上读取数据，创建DF，如果在hive，也可以直接用sqlContext来创建DF，就可以不用创建case class
 ```
-val acTransRDD = sc.textFile("hdfs://cmdata1:8020//kudu_spark/674581054918776").map(_.split(",")).map(toTrans(_))
+val acTransDF = spark.read.textFile("hdfs:///user/root/syslog.txt").map(_.split(",")).map(toTrans(_))
 
 //spark2.x
 //val acTransDF = spark.createDataFrame(acTransRDD)

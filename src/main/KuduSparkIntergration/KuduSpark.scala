@@ -15,7 +15,7 @@ object KuduSpark {
   def main(args: Array[String]): Unit = {
 
     println("hello kudu")
-    val masterList = "zjdw-pre0069:7051"
+    val masterList = "cmname1:7051"
     val kuduContext = new KuduContext(masterList)
 
     //创建测试DF
