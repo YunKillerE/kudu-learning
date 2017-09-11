@@ -94,7 +94,31 @@ acTransDF.write.options(Map("kudu.master"-> "192.168.1.12:7051", "kudu.table"-> 
 参数调整后，15亿数据大概6分钟就导入进去了，写入性能提升巨大
 
 
+# 七，kudu中创建的表映射到impala
 
+我们有一个测试集群先安装了kudu，建了一些表，通过spark streaming插入数据，后面需要给数据分析人员使用就引入了impala
+
+虽然建表的时候采用的impala::default.tsgz_stds这种格式，但是在impala中依然无法显示
+
+有两种方法：
+
+  1，删掉kudu中的表，在impala中重建，但会丢失原来的数据
+  
+  2，通过外部表的方式来做映射
+  
+```
+create external table tsgz_syslog_new
+stored as kudu
+tblproperties('kudu.table_name' = 'impala::default.tsgz_syslog_new');
+
+create external table tsgz_tcdns
+stored as kudu
+tblproperties('kudu.table_name' = 'impala::default.tsgz_tcdns');
+
+create external table tsgz_stds
+stored as kudu
+tblproperties('kudu.table_name' = 'impala::default.tsgz_stds');
+```
 
 
 

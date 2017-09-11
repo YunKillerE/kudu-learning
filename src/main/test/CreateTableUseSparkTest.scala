@@ -9,7 +9,6 @@ import org.apache.spark.sql.types._
   */
 class CreateTableUseSparkTest {
 
-
   def main(args: Array[String]): Unit = {
 
     val masterList = "cmname1:7051"
@@ -21,7 +20,6 @@ class CreateTableUseSparkTest {
   }
 
   def CreateTableUseSpark(kuduContext:KuduContext): Unit = {
-
 
 
 /*    val kuduTableSchema = StructType(
@@ -88,7 +86,6 @@ val kuduTableSchema = StructType(
     StructField("tc_protocol" , StringType, true ) ::
     StructField("tc_score" , StringType, true ) ::
     StructField("tc_comment" , StringType, true ) :: Nil)
-
 
     val tablename = "impala::default.tsgz_tcdns"
 

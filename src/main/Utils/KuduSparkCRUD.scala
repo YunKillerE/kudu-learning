@@ -68,11 +68,4 @@ class  KuduSparkCRUD(kuduContext:KuduContext) {
     }
   }
 
-
-
-
-
-
-
-
 }
